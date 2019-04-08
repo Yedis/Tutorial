@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/fbevents.js"></script><script type="text/javascript" async="" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/ei.js"></script><script async="" id="demandbase_js_lib" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/BwkB5d1U.min.js"></script><script type="text/javascript" async="" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/bat.js"></script><script type="text/javascript" async="" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/insight.min.js"></script><script type="text/javascript" async="" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/linkid.js"></script><script type="text/javascript" async="" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/gtm.js"></script><script type="text/javascript" async="" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/analytics.js"></script><script type="text/javascript" id="analytics-js" async="" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/analytics.min.js"></script><script type="text/javascript" async="" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/ip.json"></script><script type="text/javascript" async="" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/geo2.js"></script>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="fb:pages" content="115407078489594">
+<meta name="description" content="A deep dive into the Gitflow Workflow. Learn if this Git workflow is right for you and your team with this comprehensive tutorial. ">
+<meta name="author" content="Atlassian">
+<link rel="canonical" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">
+<title>Gitflow Workflow | Atlassian Git Tutorial</title>
+<link rel="stylesheet" href="./Gitflow Workflow _ Atlassian Git Tutorial_files/site.css">
+<link rel="stylesheet" href="./Gitflow Workflow _ Atlassian Git Tutorial_files/icons.css" class="additional-css">
+<link rel="stylesheet" href="./Gitflow Workflow _ Atlassian Git Tutorial_files/editmode.css" class="additional-css">
+<link href="https://plus.google.com/+atlassian" rel="publisher">
+<link rel="alternate" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="en-US">
+<link rel="alternate" href="https://cn.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="zh-Hans-CN">
+<link rel="alternate" href="https://cs.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="cs-CZ">
+<link rel="alternate" href="https://de.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="de-DE">
+<link rel="alternate" href="https://nl.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="nl-NL">
+<link rel="alternate" href="https://es.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="es-ES">
+<link rel="alternate" href="https://fi.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="fi-FI">
+<link rel="alternate" href="https://fr.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="fr-FR">
+<link rel="alternate" href="https://hu.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="hu-HU">
+<link rel="alternate" href="https://it.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="it-IT">
+<link rel="alternate" href="https://ja.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="ja-JP">
+<link rel="alternate" href="https://ko.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="ko-KR">
+<link rel="alternate" href="https://pl.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="pl-PL">
+<link rel="alternate" href="https://br.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="pt-BR">
+<link rel="alternate" href="https://www.atlassian.com/ro/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="ro-RO">
+<link rel="alternate" href="https://ru.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" hreflang="ru-RU">
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/favicon.png" sizes="32x32">
+<link rel="mask-icon" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/safari-pinned-tab.svg" color="#59afe1">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/mstile-144x144.png">
+<meta name="theme-color" content="#205081">
+<meta property="og:title" content="Gitflow Workflow | Atlassian Git Tutorial">
+<meta property="og:description" content="A deep dive into the Gitflow Workflow. Learn if this Git workflow is right for you and your team with this comprehensive tutorial. ">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">
+<meta property="og:site_name" content="Atlassian">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@Atlassian">
+<script src="./Gitflow Workflow _ Atlassian Git Tutorial_files/jquery.min.js"></script><style></style>
+<script type="text/javascript">
+/**
+* function to load external js through javascript.
+*
+* @param url - javascript url
+* @param location - location of the dom (e.g. document.head)
+*/
+var loadExternalJS = function(url, location, callback){
+var scriptTag = document.createElement('script');
+scriptTag.src = url;
+scriptTag.type = 'text/javascript';
+/* Then bind the event to the callback function.
+There are several events for cross browser compatibility. */
+scriptTag.onreadystatechange = callback;
+scriptTag.onload = callback;
+/* Fire the loading */
+location.appendChild(scriptTag);
+};
+</script>
+<!-- OneTrust Cookies Consent Notice (Production CDN, www.atlassian.com, en-GB) start -->
+<script src="./Gitflow Workflow _ Atlassian Git Tutorial_files/141bbadf-8293-4d74-9552-81ec52e16c66.js" type="text/javascript" charset="UTF-8"></script><link type="text/css" href="./Gitflow Workflow _ Atlassian Git Tutorial_files/optanon.css" rel="stylesheet"><style>#optanon ul#optanon-menu li { background-color:  !important }#optanon ul#optanon-menu li.menu-item-selected { background-color:  !important }#optanon #optanon-popup-wrapper .optanon-white-button-middle { background-color: #FFAB00 !important }.optanon-alert-box-wrapper .optanon-alert-box-button-middle { background-color: #FFAB00 !important; border-color: #FFAB00 !important; }#optanon #optanon-popup-wrapper .optanon-white-button-middle button { color: #ffffff !important }.optanon-alert-box-wrapper .optanon-alert-box-button-middle button { color: #ffffff !important }#optanon #optanon-popup-bottom { background-color: #172B4D !important }#optanon.modern #optanon-popup-top, #optanon.modern #optanon-popup-body-left-shading { background-color: #172B4D !important }.optanon-alert-box-wrapper { background-color:#172B4D !important }.optanon-alert-box-wrapper .optanon-alert-box-bg p { color:#FFFFFF !important }#optanon, #optanon *, #optanon div, #optanon span, #optanon ul, #optanon li, #optanon a, #optanon p, .optanon-alert-box-wrapper * {
+font-family: LLCircularWeb,"Helvetica Neue",Helvetica,sans-serif;
+}
+
+
+#optanon #optanon-popup-body h2 {
+    position: absolute;
+    top: -55px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin: 5px 0px 0px 5px;
+}
+#optanon #optanon-popup-body .legacy-preference-banner-title {
+    margin: 5px 0px 0px 5px;
+    padding: 0px;
+    color: #ffffff;
+}
+#optanon #optanon-popup-wrapper .optanon-white-button-middle a {
+    color: #000000 !important; 
+}
+.optanon-alert-box-wrapper .optanon-alert-box-button-middle a {
+    color: #000000 !important;
+}
+.optanon-alert-box-wrapper a {
+    color: #ffffff !important; 
+    text-indent: 1;
+   font-weight: bold; 
+  
+}
+
+.optanon-alert-box-button-middle, #optanon #optanon-popup-wrapper .optanon-white-button-middle {
+   border-radius: 4px;
+}
+.optanon-alert-box-wrapper {
+    margin: 4px;
+    border-radius: 4px;
+    width: 99.5%;
+}
+
+#optanon.modern #optanon-popup-top, #optanon.modern #optanon-popup-body-left-shading
+{
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+#optanon #optanon-popup-bottom {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+#optanon #optanon-popup-bottom-logo:after {
+    content: 'OneTrust';
+    color: #ffffff;
+}
+#optanon #optanon-popup-bottom-logo:before {
+    content: 'Powered by';
+    color: #ffffff;
+}
+.optanon-alert-box-wrapper .optanon-button-more .optanon-alert-box-button-middle a:before {
+    content: '';
+}
+.optanon-alert-box-wrapper .optanon-button-allow .optanon-alert-box-button-middle a:before {
+    content: '';
+}
+#optanon #optanon-popup-top .optanon-close, .optanon-alert-box-wrapper .optanon-alert-box-corner-close a {
+    right: 10px;
+}
+ @media only screen and (max-width: 47em) {
+ .optanon-alert-box-wrapper.hide-cookie-setting-button .optanon-alert-box-body {
+    margin-right: auto;
+    padding-right: 5px;
+}
+}</style><script type="text/javascript" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice (Production CDN, www.atlassian.com, en-GB) end -->
+<script type="text/javascript" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/1096093.js"></script>
+<style data-styled-components=""></style><script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/975152762/?random=1554273154943&amp;cv=9&amp;fst=1554273154943&amp;num=1&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1056&amp;u_aw=1920&amp;u_cd=24&amp;u_his=2&amp;u_tz=480&amp;u_java=false&amp;u_nplug=4&amp;u_nmime=5&amp;sendb=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.atlassian.com%2Fgit%2Ftutorials%2Fcomparing-workflows%2Fgitflow-workflow&amp;ref=https%3A%2F%2Fmedium.freecodecamp.org%2Fhow-to-use-git-efficiently-54320a236369&amp;tiba=Gitflow%20Workflow%20%7C%20Atlassian%20Git%20Tutorial&amp;rfmt=3&amp;fmt=4"></script></head>
+<body id="gitflow-workflow" class="wac git tutorials comparing-workflows gitflow-workflow scrolled hoverable">
+<div id="header">
+<div class="tutorial-sidebar is-active">
+<div class="_bumper"></div>
+<div class="_wrap">
+<ol>
+<div class="_group">
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud" class="cms-link cms-link--text group-link">Learn Git</a>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud" class="cms-link cms-link--text tutorial-link">Learn Git with Bitbucket Cloud</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud#create-the-repository" class="cms-link cms-link--text section-link">Create a Git repository</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud#copy-and-add-files" class="cms-link cms-link--text section-link">Copy your Git repository and add files</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud#pull-changes" class="cms-link cms-link--text section-link">Pull changes from your Git repository on Bitbucket Cloud</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud#git-branch-to-merge" class="cms-link cms-link--text section-link">Use a Git branch to merge a file</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/learn-about-code-review-in-bitbucket-cloud" class="cms-link cms-link--text tutorial-link">Learn about code review in Bitbucket Cloud</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/learn-about-code-review-in-bitbucket-cloud#create-repository" class="cms-link cms-link--text section-link">Create a repository and add a teammate</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-about-code-review-in-bitbucket-cloud#clone-branch" class="cms-link cms-link--text section-link">Clone and make a change on a new branch</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-about-code-review-in-bitbucket-cloud#im-using-git" class="cms-link cms-link--text section-link">If you're using command line</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-about-code-review-in-bitbucket-cloud#im-using-sourcetree" class="cms-link cms-link--text section-link">If you're using Sourcetree</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/learn-branching-with-bitbucket-cloud" class="cms-link cms-link--text tutorial-link">Learn branching in Bitbucket Cloud</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/learn-branching-with-bitbucket-cloud#create-the-repository" class="cms-link cms-link--text section-link">Get set up</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-branching-with-bitbucket-cloud#review-branching-workflow" class="cms-link cms-link--text section-link">Review branching workflow</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/learn-undoing-changes-with-bitbucket" class="cms-link cms-link--text tutorial-link">Learn undoing changes with Bitbucket Cloud</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/learn-undoing-changes-with-bitbucket#git-status" class="cms-link cms-link--text section-link">git status</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-undoing-changes-with-bitbucket#git-log" class="cms-link cms-link--text section-link">git log</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-undoing-changes-with-bitbucket#git-reset" class="cms-link cms-link--text section-link">git reset</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-undoing-changes-with-bitbucket#git-revert" class="cms-link cms-link--text section-link">git revert</a>
+</div>
+</div>
+</div>
+<div class="_group">
+<a href="https://www.atlassian.com/git/tutorials/what-is-version-control" class="cms-link cms-link--text group-link">Beginner</a>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/what-is-version-control" class="cms-link cms-link--text tutorial-link">What is version control</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/what-is-version-control#benefits-of-version-control" class="cms-link cms-link--text section-link">Benefits of version control</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/what-is-git" class="cms-link cms-link--text tutorial-link">What is Git</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/what-is-git#performance" class="cms-link cms-link--text section-link">Performance</a>
+<a href="https://www.atlassian.com/git/tutorials/what-is-git#security" class="cms-link cms-link--text section-link">Security</a>
+<a href="https://www.atlassian.com/git/tutorials/what-is-git#flexibility" class="cms-link cms-link--text section-link">Flexibility</a>
+<a href="https://www.atlassian.com/git/tutorials/what-is-git#version-control-with-git" class="cms-link cms-link--text section-link">Version control with Git</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/why-git" class="cms-link cms-link--text tutorial-link">Why Git for your Organization</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-developers" class="cms-link cms-link--text section-link">Git for developers</a>
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-marketing" class="cms-link cms-link--text section-link">Git for marketing</a>
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-product-management" class="cms-link cms-link--text section-link">Git for product management</a>
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-designers" class="cms-link cms-link--text section-link">Git for designers</a>
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-customer-support" class="cms-link cms-link--text section-link">Git for customer support</a>
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-human-resources" class="cms-link cms-link--text section-link">Git for human resources</a>
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-anyone-managing-budget" class="cms-link cms-link--text section-link">Git for anyone managing a budget</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/install-git" class="cms-link cms-link--text tutorial-link">Install Git</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/install-git#mac-os-x" class="cms-link cms-link--text section-link">Install Git on Mac OS X</a>
+<a href="https://www.atlassian.com/git/tutorials/install-git#windows" class="cms-link cms-link--text section-link">Install Git on Windows</a>
+<a href="https://www.atlassian.com/git/tutorials/install-git#linux" class="cms-link cms-link--text section-link">Install Git on Linux</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet" class="cms-link cms-link--text tutorial-link">Git Cheatsheet</a>
+</div>
+</div>
+<div class="_group">
+<a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository" class="cms-link cms-link--text group-link">Getting Started</a>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository" class="cms-link cms-link--text tutorial-link">Setting up a repository</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init" class="cms-link cms-link--text section-link">git init</a>
+<a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone" class="cms-link cms-link--text section-link">git clone</a>
+<a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config" class="cms-link cms-link--text section-link">git config</a>
+<a href="https://www.atlassian.com/git/tutorials/git-alias" class="cms-link cms-link--text section-link">git alias</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/saving-changes" class="cms-link cms-link--text tutorial-link">Saving changes</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/saving-changes" class="cms-link cms-link--text section-link">git add</a>
+<a href="https://www.atlassian.com/git/tutorials/saving-changes/git-commit" class="cms-link cms-link--text section-link">git commit</a>
+<a href="https://www.atlassian.com/git/tutorials/saving-changes/git-diff" class="cms-link cms-link--text section-link">git diff</a>
+<a href="https://www.atlassian.com/git/tutorials/saving-changes/git-stash" class="cms-link cms-link--text section-link">git stash</a>
+<a href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore" class="cms-link cms-link--text section-link">.gitignore</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/inspecting-a-repository" class="cms-link cms-link--text tutorial-link">Inspecting a repository</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/inspecting-a-repository" class="cms-link cms-link--text section-link">git status</a>
+<a href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag" class="cms-link cms-link--text section-link">git tag</a>
+<a href="https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-blame" class="cms-link cms-link--text section-link">git blame</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes" class="cms-link cms-link--text tutorial-link">Undoing changes</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes" class="cms-link cms-link--text section-link">git checkout</a>
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-clean" class="cms-link cms-link--text section-link">git clean</a>
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-revert" class="cms-link cms-link--text section-link">git revert</a>
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-reset" class="cms-link cms-link--text section-link">git reset</a>
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-rm" class="cms-link cms-link--text section-link">git rm</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history" class="cms-link cms-link--text tutorial-link">Rewriting history</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history#git-commit--amend" class="cms-link cms-link--text section-link">git commit --amend</a>
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase" class="cms-link cms-link--text section-link">git rebase</a>
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history#git-rebase-i" class="cms-link cms-link--text section-link">git rebase -i</a>
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-reflog" class="cms-link cms-link--text section-link">git reflog</a>
+</div>
+</div>
+</div>
+<div class="_group">
+<a href="https://www.atlassian.com/git/tutorials/syncing" class="cms-link cms-link--text group-link">Collaborating</a>
+<div class="_group-wrap is-active">
+<a href="https://www.atlassian.com/git/tutorials/syncing" class="cms-link cms-link--text tutorial-link">Syncing</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/syncing" class="cms-link cms-link--text section-link">git remote</a>
+<a href="https://www.atlassian.com/git/tutorials/syncing/git-fetch" class="cms-link cms-link--text section-link">git fetch</a>
+<a href="https://www.atlassian.com/git/tutorials/syncing/git-push" class="cms-link cms-link--text section-link">git push</a>
+<a href="https://www.atlassian.com/git/tutorials/syncing/git-pull" class="cms-link cms-link--text section-link">git pull</a>
+</div>
+</div>
+<div class="_group-wrap is-active">
+<a href="https://www.atlassian.com/git/tutorials/making-a-pull-request" class="cms-link cms-link--text tutorial-link">Making a Pull Request</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/making-a-pull-request#how-it-works" class="cms-link cms-link--text section-link">How it works</a>
+<a href="https://www.atlassian.com/git/tutorials/making-a-pull-request#example" class="cms-link cms-link--text section-link">Example</a>
+<a href="https://www.atlassian.com/git/tutorials/making-a-pull-request#where-to-go" class="cms-link cms-link--text section-link">Where to go from here</a>
+</div>
+</div>
+<div class="_group-wrap is-active">
+<a href="https://www.atlassian.com/git/tutorials/using-branches" class="cms-link cms-link--text tutorial-link">Using branches</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/using-branches" class="cms-link cms-link--text section-link">git branch</a>
+<a href="https://www.atlassian.com/git/tutorials/using-branches/git-checkout" class="cms-link cms-link--text section-link">git checkout</a>
+<a href="https://www.atlassian.com/git/tutorials/using-branches/git-merge" class="cms-link cms-link--text section-link">git merge</a>
+<a href="https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts" class="cms-link cms-link--text section-link">Merge conflicts</a>
+<a href="https://www.atlassian.com/git/tutorials/using-branches/merge-strategy" class="cms-link cms-link--text section-link">Merge strategies</a>
+</div>
+</div>
+<div class="_group-wrap is-active">
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows" class="cms-link cms-link--text tutorial-link active">Comparing workflows</a>
+<div class="_toc is-active">
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows#centralized-workflow" class="cms-link cms-link--text section-link">Centralized Workflow</a>
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow" class="cms-link cms-link--text section-link">Feature Branch Workflow</a>
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" class="cms-link cms-link--text section-link active">Gitflow Workflow</a>
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow" class="cms-link cms-link--text section-link">Forking Workflow</a>
+</div>
+</div>
+</div>
+<div class="_group">
+<a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration" class="cms-link cms-link--text group-link">Migrating to Git</a>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration" class="cms-link cms-link--text tutorial-link">SVN to Git - prepping for the migration</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration#for-administrators" class="cms-link cms-link--text section-link">For administrators</a>
+<a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration#basic-git-commands" class="cms-link cms-link--text section-link">Basic Git commands</a>
+<a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration#git-migration-tools" class="cms-link cms-link--text section-link">Git Migration Tools</a>
+<a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration#for-developers" class="cms-link cms-link--text section-link">For developers</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/migrating-overview" class="cms-link cms-link--text tutorial-link">Migrate to Git from SVN</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/migrating-prepare" class="cms-link cms-link--text tutorial-link">Prepare</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/migrating-convert" class="cms-link cms-link--text tutorial-link">Convert</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/migrating-synchronize" class="cms-link cms-link--text tutorial-link">Synchronize</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/migrating-share" class="cms-link cms-link--text tutorial-link">Share</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/migrating-migrate" class="cms-link cms-link--text tutorial-link">Migrate</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/perforce-git" class="cms-link cms-link--text tutorial-link">Perforce to Git - why to make the move</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/perforce-git-migration" class="cms-link cms-link--text tutorial-link">Migrating from Perforce to Git</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/git-move-repository" class="cms-link cms-link--text tutorial-link">How to move a Git repository with history</a>
+</div>
+</div>
+<div class="_group">
+<a href="https://www.atlassian.com/git/tutorials/advanced-overview" class="cms-link cms-link--text group-link">Advanced Tips</a>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/advanced-overview" class="cms-link cms-link--text tutorial-link">Advanced Git Tutorials</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing" class="cms-link cms-link--text tutorial-link">Merging vs. Rebasing</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#conceptual-overview" class="cms-link cms-link--text section-link">Conceptual Overview</a>
+<a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing" class="cms-link cms-link--text section-link">The Golden Rule of Rebasing</a>
+<a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#workflow-walkthrough" class="cms-link cms-link--text section-link">Workflow Walkthrough</a>
+<a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#summary" class="cms-link cms-link--text section-link">Summary</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting" class="cms-link cms-link--text tutorial-link">Resetting, Checking Out, and Reverting</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/git-log" class="cms-link cms-link--text tutorial-link">Advanced Git log</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/git-log#formatting-log-output" class="cms-link cms-link--text section-link">Formatting Log Output</a>
+<a href="https://www.atlassian.com/git/tutorials/git-log#filtering-the-commit-history" class="cms-link cms-link--text section-link">Filtering the Commit History</a>
+<a href="https://www.atlassian.com/git/tutorials/git-log#summary" class="cms-link cms-link--text section-link">Summary</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/git-hooks" class="cms-link cms-link--text tutorial-link">Git Hooks</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/git-hooks#conceptual-overview" class="cms-link cms-link--text section-link">Conceptual Overview</a>
+<a href="https://www.atlassian.com/git/tutorials/git-hooks#local-hooks" class="cms-link cms-link--text section-link">Local Hooks</a>
+<a href="https://www.atlassian.com/git/tutorials/git-hooks#server-side-hooks" class="cms-link cms-link--text section-link">Server-side Hooks</a>
+<a href="https://www.atlassian.com/git/tutorials/git-hooks#summary" class="cms-link cms-link--text section-link">Summary</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog" class="cms-link cms-link--text tutorial-link">Refs and the Reflog</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#hashes" class="cms-link cms-link--text section-link">Hashes</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#refs" class="cms-link cms-link--text section-link">Refs</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#packed-refs" class="cms-link cms-link--text section-link">Packed Refs</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#special-refs" class="cms-link cms-link--text section-link">Special Refs</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#refspecs" class="cms-link cms-link--text section-link">Refspecs</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#relative-refs" class="cms-link cms-link--text section-link">Relative Refs</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#the-reflog" class="cms-link cms-link--text section-link">The Reflog</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#summary" class="cms-link cms-link--text section-link">Summary</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/git-lfs" class="cms-link cms-link--text tutorial-link">Git LFS</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/git-gc" class="cms-link cms-link--text tutorial-link">Git gc</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/git-prune" class="cms-link cms-link--text tutorial-link">Git prune</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/git-bash" class="cms-link cms-link--text tutorial-link">Git Bash</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/dotfiles" class="cms-link cms-link--text tutorial-link">How to store dotfiles</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/cherry-pick" class="cms-link cms-link--text tutorial-link">Git Cherry Pick</a>
+</div>
+</div>
+</ol>
+</div>
+</div>
+<div class="hamburger">
+<div class="_layer -top"></div>
+<div class="_layer -mid"></div>
+<div class="_layer -bottom"></div>
+</div>
+<div class="primary-nav">
+<div class="_wrapper">
+<ul class="_nav-list">
+<div>
+<li>
+<a href="https://www.atlassian.com/git" class="cms-link cms-link--text _nav-item -home">Home</a>
+</li>
+</div>
+<div>
+<li class="tutorials-nav" id="tutorials-nav-mobile">
+<h4 class="_nav-item -tutorials">Tutorials</h4>
+<div class="_sublist">  <ol>        <li class="_group">      <h5>Learn Git</h5>      <ol class="_group-wrap">                <li>          <a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud">Learn Git with Bitbucket Cloud</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/learn-about-code-review-in-bitbucket-cloud">Learn about code review in Bitbucket Cloud</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/learn-branching-with-bitbucket-cloud">Learn branching in Bitbucket Cloud</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/learn-undoing-changes-with-bitbucket">Learn undoing changes with Bitbucket Cloud</a>        </li>              </ol>    </li>        <li class="_group">      <h5>Beginner</h5>      <ol class="_group-wrap">                <li>          <a href="https://www.atlassian.com/git/tutorials/what-is-version-control">What is version control</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/what-is-git">What is Git</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/why-git">Why Git for your Organization</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/install-git">Install Git</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet">Git Cheatsheet</a>        </li>              </ol>    </li>        <li class="_group">      <h5>Getting Started</h5>      <ol class="_group-wrap">                <li>          <a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository">Setting up a repository</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/saving-changes">Saving changes</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/inspecting-a-repository">Inspecting a repository</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/undoing-changes">Undoing changes</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/rewriting-history">Rewriting history</a>        </li>              </ol>    </li>        <li class="_group">      <h5>Collaborating</h5>      <ol class="_group-wrap">                <li>          <a href="https://www.atlassian.com/git/tutorials/syncing">Syncing</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/making-a-pull-request">Making a Pull Request</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/using-branches">Using branches</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/comparing-workflows">Comparing workflows</a>        </li>              </ol>    </li>        <li class="_group">      <h5>Migrating to Git</h5>      <ol class="_group-wrap">                <li>          <a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration">SVN to Git - prepping for the migration</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/migrating-overview">Migrate to Git from SVN</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/migrating-prepare">Prepare</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/migrating-convert">Convert</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/migrating-synchronize">Synchronize</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/migrating-share">Share</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/migrating-migrate">Migrate</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/perforce-git">Perforce to Git - why to make the move</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/perforce-git-migration">Migrating from Perforce to Git</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/git-move-repository">How to move a Git repository with history</a>        </li>              </ol>    </li>        <li class="_group">      <h5>Advanced Tips</h5>      <ol class="_group-wrap">                <li>          <a href="https://www.atlassian.com/git/tutorials/advanced-overview">Advanced Git Tutorials</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">Merging vs. Rebasing</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting">Resetting, Checking Out, and Reverting</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/git-log">Advanced Git log</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/git-hooks">Git Hooks</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog">Refs and the Reflog</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/git-lfs">Git LFS</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/git-gc">Git gc</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/git-prune">Git prune</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/git-bash">Git Bash</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/dotfiles">How to store dotfiles</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/cherry-pick">Git Cherry Pick</a>        </li>              </ol>    </li>      </ol>  </div>
+</li>
+<li>
+<a href="https://www.atlassian.com/git/tutorials" class="cms-link cms-link--text _nav-item -tutorials">Tutorials</a>
+</li>
+</div>
+<div>
+<li>
+<a href="https://www.atlassian.com/git/articles" class="cms-link cms-link--text _nav-item -articles">Articles</a>
+</li>
+</div>
+<div>
+<li>
+<a href="https://www.atlassian.com/git/glossary" class="cms-link cms-link--text _nav-item -glossary">Glossary</a>
+</li>
+</div>
+</ul>
+</div>
+</div>
+<div class="topbar is-tutorial">
+<div class="_header -is-tutorial">
+<a href="https://www.atlassian.com/git/tutorials" class="active">Tutorials</a>
+</div>
+</div>
+<form class="newsletter">
+<input class="is-empty _input" type="email" placeholder="Enter Your Email For Git News">
+<button type="submit" class="_status icon-email-submit">Submit</button>
+</form>
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow#footer" class="button green-hollow secondary newsletter-cta">Sign up</a>
+<a href="https://www.atlassian.com/git/search" class="search-button search-open ">
+<span class="_link icon-search">Search</span>
+</a>
+<a href="https://www.atlassian.com/git" class="search-button search-close -in-page hidden">
+<span class="_link icon-search-close -close">Search</span>
+</a>
+</div>
+<div class="page-wrap is-active -gray-bg tutorial-detail">
+<div id="content" class="_content">
+<div class="tutorial-hero">
+<div class="g-column g-12-12 text-center">
+<h1>Gitflow Workflow</h1>
+</div></div>
+<div class="g-row">
+<div class="g-column g-12-12 t-12-12 m-10-12 g-centered">
+<p>&nbsp;</p>
+<p>Gitflow Workflow is a Git workflow design that was first published and made popular by&nbsp;<a href="http://nvie.com/posts/a-successful-git-branching-model/">Vincent Driessen at nvie</a>.&nbsp;The Gitflow Workflow defines a strict branching model designed around the project release. This provides a robust framework for managing larger projects. &nbsp;</p>
+<p>Gitflow is ideally suited for projects that have a scheduled release cycle. This workflow doesn’t add any new concepts or commands beyond what’s required for the&nbsp;<a href="http://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow">Feature Branch Workflow</a>.&nbsp;Instead, it assigns very specific roles to different branches and defines how and when they should interact. In addition to <code>feature</code> branches, it uses individual branches for preparing, maintaining, and recording releases. Of course, you also get to leverage all the benefits of the Feature Branch Workflow: pull requests, isolated experiments, and more efficient collaboration.</p>
+<h2>Getting Started</h2>
+<p>Gitflow is really just an abstract idea of a Git workflow. This means it dictates what kind of branches to set up and how to merge them together. We will touch on the purposes of the branches below. The git-flow toolset is an actual command line tool that has an installation process. The installation process for git-flow is straightforward. Packages for git-flow are available on multiple operating systems. On OSX systems, you can execute <code>brew install git-flow</code>. On windows you will need to <a href="https://git-scm.com/download/win">download and install git-flow</a>.&nbsp;After installing git-flow you can use it in your project by executing <code>git flow init</code>. Git-flow is a wrapper around Git. The <code>git flow init</code> command is an extension of the default <code><a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init">git init</a></code>&nbsp;command and doesn't change anything in your repository other than creating branches for you.</p>
+<h2>How it works</h2>
+<img src="./Gitflow Workflow _ Atlassian Git Tutorial_files/02 (2).svg" alt="Git flow workflow - Historical Branches">
+<h3>Develop and Master Branches </h3>
+<p>Instead of a single <code>master</code> branch, this workflow uses two branches to record the history of the project. The <code>master</code> branch stores the official release history, and the <code>develop</code> branch serves as an integration branch for features. It's also convenient to tag all commits in the <code>master</code> branch with a version number.</p>
+<p>The first step is to complement the default <code>master</code> with a <code>develop</code> branch. A simple way to do this is for one developer to create an empty <code>develop</code> branch locally and push it to the server:</p>
+<pre><code class="hljs armasm"><span class="hljs-symbol">git</span> <span class="hljs-keyword">branch </span>develop
+<span class="hljs-symbol">git</span> <span class="hljs-keyword">push </span>-u origin develop</code></pre>
+<p>This branch will contain the complete history of the project, whereas <code>master</code> will contain an abridged version. Other developers should now clone the central repository and create a tracking branch for <code>develop.</code></p>
+<p>When using the git-flow extension library, executing <code>git flow init</code> on an existing repo will create the <code>develop</code> branch:</p>
+<pre><code class="hljs armasm">$ git flow init
+<span class="hljs-symbol">Initialized</span> empty Git repository in ~/project/.git/
+<span class="hljs-symbol">No</span> <span class="hljs-keyword">branches </span>exist yet. <span class="hljs-keyword">Base </span><span class="hljs-keyword">branches </span>must <span class="hljs-keyword">be </span>created now.
+<span class="hljs-keyword">Branch </span>name for production releases: [master]
+<span class="hljs-keyword">Branch </span>name for <span class="hljs-string">"next release"</span> development: [develop]<br>
+<span class="hljs-symbol">How</span> to name your supporting <span class="hljs-keyword">branch </span>prefixes?
+<span class="hljs-symbol">Feature</span> <span class="hljs-keyword">branches? </span>[feature/]
+<span class="hljs-symbol">Release</span> <span class="hljs-keyword">branches? </span>[release/]
+<span class="hljs-symbol">Hotfix</span> <span class="hljs-keyword">branches? </span>[hotfix/]
+<span class="hljs-symbol">Support</span> <span class="hljs-keyword">branches? </span>[support/]
+<span class="hljs-symbol">Version</span> tag prefix? []<br>
+$ git <span class="hljs-keyword">branch
+</span>* develop
+&nbsp;master</code></pre>
+<h2>Feature Branches</h2>
+<p>Each new feature should reside in its own branch, which can be <a href="https://www.atlassian.com/git/tutorials/syncing/git-push">pushed to the central repository</a>&nbsp;for backup/collaboration. But, instead of branching off of <code>master</code>, <code>feature</code> branches use <code>develop</code> as their parent branch. When a feature is complete, it gets <a href="https://www.atlassian.com/git/tutorials/using-branches/git-merge">merged back into develop</a>.&nbsp;Features should never interact directly with <code>master</code>.</p>
+<img src="./Gitflow Workflow _ Atlassian Git Tutorial_files/03 (2).svg" alt="Git flow workflow - Feature Branches">
+<p>Note that <code>feature</code> branches combined with the <code>develop</code> branch is, for all intents and purposes, the Feature Branch Workflow. But, the Gitflow Workflow doesn’t stop there.</p>
+<p><code>Feature</code> branches are generally created off to the latest <code>develop</code> branch.</p>
+<h3>Creating a feature branch</h3>
+<p>Without the git-flow extensions:</p>
+<pre><code class="hljs stylus">git checkout develop
+git checkout -<span class="hljs-selector-tag">b</span> feature_branch
+</code></pre>
+<p>When using the git-flow extension:</p>
+<pre><code class="hljs crmsh">git flow feature <span class="hljs-literal">start</span> feature_branch</code></pre>
+<p>Continue your work and use Git like you normally would.</p>
+<h3>Finishing a feature branch</h3>
+<p>When you’re done with the development work on the feature, the next step is to merge the <code>feature_branch</code> into <code>develop</code>.</p>
+<p>Without the git-flow extensions:</p>
+<pre><code class="hljs cos">git checkout develop
+git <span class="hljs-keyword">merge</span> feature_branch</code></pre>
+<p>Using the git-flow extensions:</p>
+<pre><code class="hljs maxima">git flow <span class="hljs-built_in">feature</span> finish feature_branch</code></pre>
+<h2>Release Branches</h2>
+<img src="./Gitflow Workflow _ Atlassian Git Tutorial_files/04 (1).svg" alt="Git Flow Workflow - Release Branches">
+<p>Once <code>develop</code> has acquired enough features for a release (or a predetermined release date is approaching), you fork a <code>release</code> branch off of <code>develop</code>. Creating this branch starts the next release cycle, so no new features can be added after this point—only bug fixes, documentation generation, and other release-oriented tasks should go in this branch. Once it's ready to ship, the <code>release</code> branch gets merged into <code>master</code> and tagged with a version number. In addition, it should be merged back into <code>develop</code>, which may have progressed since the release was initiated.</p>
+<p>Using a dedicated branch to prepare releases makes it possible for one team to polish the current release while another team continues working on features for the next release. It also creates well-defined phases of development (e.g., it's easy to say, “This week we're preparing for version 4.0,” and to actually see it in the structure of the repository).</p>
+<p>Making <code>release</code> branches is another straightforward branching operation. Like <code>feature</code> branches, <code>release</code> branches are based on the <code>develop</code> branch. A new <code>release</code> branch can be created using the following methods.</p>
+<p>Without the git-flow extensions:</p>
+<pre><code class="hljs lsl">git checkout develop
+git checkout -b release/<span class="hljs-number">0.1</span><span class="hljs-number">.0</span></code></pre>
+<p>When using the git-flow extensions:</p>
+<pre><code class="hljs livecodeserver">$ git flow release <span class="hljs-built_in">start</span> <span class="hljs-number">0.1</span><span class="hljs-number">.0</span>
+Switched <span class="hljs-built_in">to</span> <span class="hljs-keyword">a</span> <span class="hljs-built_in">new</span> branch <span class="hljs-string">'release/0.1.0'</span></code></pre>
+<p>Once the release is ready to ship, it will get merged it into <code>master</code> and <code>develop</code>, then the <code>release</code> branch will be deleted. It’s important to merge back into <code>develop</code> because critical updates may have been added to the <code>release</code> branch and they need to be accessible to new features. If your organization stresses code review, this would be an ideal place for a pull request.</p>
+<p>To finish a <code>release</code> branch, use the following methods:</p>
+<p>Without the git-flow extensions:</p>
+<pre><code class="hljs crmsh">git checkout <span class="hljs-keyword">master</span>
+<span class="hljs-title">git</span> merge release/<span class="hljs-number">0.1</span>.<span class="hljs-number">0</span></code></pre>
+<p>Or with the git-flow extension:</p>
+<pre><code class="hljs sql">git flow <span class="hljs-keyword">release</span> <span class="hljs-keyword">finish</span> <span class="hljs-string">'0.1.0'</span></code></pre>
+<h2>Hotfix Branches</h2>
+<img src="./Gitflow Workflow _ Atlassian Git Tutorial_files/05 (2).svg" alt="Git flow workflow - Hotfix Branches">
+<p>Maintenance or <code>“hotfix”</code> branches are used to quickly patch production releases. <code>Hotfix</code> branches are a lot like <code>release</code> branches and <code>feature</code> branches except they're based on <code>master</code> instead of <code>develop</code>. This is the only branch that should fork directly off of <code>master</code>. As soon as the fix is complete, it should be merged into both <code>master</code> and <code>develop</code> (or the current <code>release</code> branch), and <code>master</code> should be tagged with an updated version number.</p>
+<p>Having a dedicated line of development for bug fixes lets your team address issues without interrupting the rest of the workflow or waiting for the next release cycle. You can think of maintenance branches as ad hoc <code>release</code> branches that work directly with <code>master</code>. A <code>hotfix</code> branch can be created using the following methods:</p>
+<p>Without the git-flow extensions:</p>
+<pre><code class="hljs crmsh">git checkout <span class="hljs-keyword">master</span>
+<span class="hljs-title">git</span> checkout -b hotfix_branch</code></pre>
+<p>When using the git-flow extensions:&nbsp;</p>
+<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git flow hotfix start hotfix_branch</span></code></pre>
+<p>Similar to finishing a <code>release</code> branch, a <code>hotfix</code> branch gets merged into both <code>master</code> and <code>develop.</code></p>
+<pre><code class="hljs crmsh">git checkout <span class="hljs-keyword">master</span>
+<span class="hljs-title">git</span> merge hotfix_branch
+git checkout develop
+git merge hotfix_branch
+git branch -D hotfix_branch</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> git flow hotfix finish hotfix_branch</span></code></pre>
+<h2>Example</h2>
+<p>A complete example demonstrating a Feature Branch Flow is as follows. Assuming we have a repo setup with a <code>master</code> branch.</p>
+<div class="component component--codeblock">
+<pre><code class="git hljs armasm"><span class="hljs-symbol">git</span>&nbsp;checkout&nbsp;master<br>git&nbsp;checkout&nbsp;-<span class="hljs-keyword">b&nbsp;</span>develop<br>git&nbsp;checkout&nbsp;-<span class="hljs-keyword">b&nbsp;</span>feature_branch<br>#&nbsp;work&nbsp;happens&nbsp;on&nbsp;feature&nbsp;<span class="hljs-keyword">branch</span><br><span class="hljs-keyword">git&nbsp;</span>checkout&nbsp;develop<br>git&nbsp;merge&nbsp;feature_branch<br>git&nbsp;checkout&nbsp;master<br>git&nbsp;merge&nbsp;develop<br>git&nbsp;<span class="hljs-keyword">branch&nbsp;</span>-d&nbsp;feature_branch</code></pre>
+</div>
+<script type="text/x-component">
+{
+"type":"imkt.wpl.CodeBlock",
+"params": {
+}
+}
+</script>
+<p>In addition to the <code>feature</code> and <code>release</code> flow, a <code>hotfix</code> example is as follows:</p>
+<pre><code class="hljs crmsh">git checkout <span class="hljs-keyword">master</span>
+<span class="hljs-title">git</span> checkout -b hotfix_branch
+<span class="hljs-comment"># work is done commits are added to the hotfix_branch</span>
+git checkout develop
+git merge hotfix_branch
+git checkout <span class="hljs-keyword">master</span>
+<span class="hljs-title">git</span> merge hotfix_branch</code></pre>
+<h2>Summary</h2>
+<p>Here we discussed the Gitflow Workflow. Gitflow is one of many styles of&nbsp;<a href="https://www.atlassian.com/git/tutorials/comparing-workflows">Git workflows</a>&nbsp;you and your team can utilize.</p>
+<p>Some key takeaways to know about Gitflow are:</p>
+<ul>
+<li>The workflow is great for a release-based software workflow.</li>
+<li>Gitflow offers a dedicated channel for hotfixes to production.<br>
+&nbsp;</li>
+</ul>
+<p>The overall flow of Gitflow is:</p>
+<ol>
+<li>A <code>develop</code> branch is created from <code>master</code></li>
+<li>A <code>release</code> branch is created from <code>develop</code></li>
+<li><code>Feature</code>&nbsp;branches are created from <code>develop</code></li>
+<li>When a <code>feature</code> is complete it is merged into the <code>develop</code>&nbsp;branch</li>
+<li>When the <code>release</code> branch is done it is merged into <code>develop</code> and <code>master</code></li>
+<li>If an issue in <code>master</code> is detected a <code>hotfix</code> branch is created from <code>master</code></li>
+<li>Once the <code>hotfix</code> is complete it is merged to both <code>develop</code> and <code>master</code></li>
+</ol>
+<p>Next, learn about the <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow">Forking Workflow</a>&nbsp;or visit our&nbsp;<a href="https://www.atlassian.com/git/tutorials/comparing-workflows">workflow comparison page</a>.</p>
+</div></div>
+<div id="related-post-sidebar" class="related-post attached">
+<div class="related-post--text">
+<p>Ready to learn Git?</p>
+<p>Try this interactive tutorial.</p>
+</div>
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud" class="button green-solid standard related-post--link">Get started now</a>
+</div>
+<div class="_footer">
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow" class="cms-link cms-link--text"><div class="g-column g-6-12 g-centered">
+<div class="_hero">
+<img src="./Gitflow Workflow _ Atlassian Git Tutorial_files/Workflow-hero.svg" alt="Git work flows - gitflow workflow">
+</div>
+<h5>Next up:</h5>
+<h4>Forking Workflow</h4>
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow" class="cms-link cms-link--text">Start next tutorial</a>
+</div></a></div>
+<div id="related-post-sidebar-flyout" class="related-post active">
+<div class="related-post--text">
+<p>Ready to learn Git?</p>
+<p>Try this interactive tutorial.</p>
+</div>
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud" class="button green-solid standard related-post--link">Get started now</a>
+</div></div>
+</div>
+<div id="footer" class="footer is-tutorial ">
+<div class="g-row _atlassian-logo">
+<div class="g-column g-12-12">
+<h5>Powered By</h5>
+<a href="https://bitbucket.org/" class="cms-link cms-link--image"><img src="./Gitflow Workflow _ Atlassian Git Tutorial_files/Bitbucket-white.svg" alt="Atlassian"></a>
+</div></div>
+<div class="g-row">
+<div class="g-column g-4-12 t-12-12 m-12-12 t-gutterless">
+<h6>Recommend</h6>
+<a href="https://twitter.com/home?status=Switching%20to%20%23Git?%20Use%20the%20Atlassian%20Git%20tutorials%20to%20jumpstart%20your%20training%20in%20Git%20commands%20and%20workflows.%20https://www.atlassian.com/git" class="cms-link cms-link--image social-code"><img src="./Gitflow Workflow _ Atlassian Git Tutorial_files/icon-twitter.svg" alt="Twitter"></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://www.atlassian.com/git" class="cms-link cms-link--image social-code"><img src="./Gitflow Workflow _ Atlassian Git Tutorial_files/icon-facebook.svg" alt="Facebook"></a>
+<a href="https://plus.google.com/share?url=https://www.atlassian.com/git" class="cms-link cms-link--image social-code"><img src="./Gitflow Workflow _ Atlassian Git Tutorial_files/icon-gplus.svg" alt="GooglePlus"></a>
+</div><div class="g-column g-4-12 t-12-12 m-12-12 t-gutterless">
+<h6>Want future articles?</h6>
+<form class="newsletter">
+<input class="is-empty _input" type="email" placeholder="Enter Your Email For Git News">
+<button type="submit" class="_status icon-email-submit">Submit</button>
+</form>
+</div><div class="g-column g-4-12 t-12-12 m-12-12 t-gutterless">
+<h6>Site hosted by</h6>
+<a href="https://www.atlassian.com/" class="cms-link cms-link--image"><img src="./Gitflow Workflow _ Atlassian Git Tutorial_files/Atlassian-horizontal-white-rgb.svg" alt="Bitbucket" class="_bitbucket-logo"></a>
+</div></div>
+<div class="g-row">
+<div class="g-column g-12-12 t-12-12 m-12-12">
+<p class="license"><a class="icon-global-cclicense" href="http://creativecommons.org/licenses/by/2.5/au/" rel="nofollow">creativecommons.org</a>Except where otherwise noted, all content is licensed under a <a href="http://creativecommons.org/licenses/by/2.5/au/" rel="nofollow">Creative Commons Attribution 2.5 Australia License</a>.</p>
+</div></div>
+</div>
+<iframe src="./Gitflow Workflow _ Atlassian Git Tutorial_files/a1096093.html" hidden="" aria-hidden="true" tabindex="-1" title="Optimizely Internal Frame" height="0" width="0" style="display: none;"></iframe><script type="text/javascript">
+var HTTP_PREFIX = "";
+var FEATURE_FLAG_USE_GDPR = true;
+</script>
+<script type="text/javascript" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/gitflow-workflow"></script>
+<script type="text/javascript" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/app.js"></script>
+<script type="text/javascript">
+(function(){
+var imkt = window.imkt || (window.imkt = {});
+imkt.isEditMode = false;
+imkt.isProduction = true;
+imkt.constants = imkt.constants || {};
+imkt.constants.rootPath = "/";
+imkt.constants.assetPath = "https://wac-cdn.atlassian.com" + "/assets/";
+imkt.constants.libPath = imkt.constants.assetPath + "bower_components/";
+imkt.constants.cdnVersionQuery = "?cdnVersion=le";
+imkt.constants.isDevUser = false;
+imkt.constants.getUserAccounts = false;
+imkt.constants.headerLoginMenu = true;
+imkt.constants.public = true;
+imkt.constants.mobileBreakpoint = 640;
+})();
+</script>
+<script src="./Gitflow Workflow _ Atlassian Git Tutorial_files/code-block.min.js"></script>
+<script type="text/javascript" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/app(1).js"></script>
+<script type="text/x-component">
+{
+"type":"imkt.pages.WACPage",
+"params": {
+}
+}
+</script>
+<script>
+function initializeATLAnalytics() {
+var pageViewProperties = { contentSite: 'Git Microsite', contentType: 'Microsite', contentProduct: 'Bitbucket' };
+if (typeof ace !== 'undefined') {
+ace.analytics.Initializer.initWithPageAnalytics('kiv6wyh2nw', pageViewProperties);
+}
+}
+</script>
+<script type="text/javascript" class="optanon-category-2">
+loadExternalJS("https://ace-cdn.atlassian.com/stp/current/analytics/js/atl-analytics.min.js", document.body, initializeATLAnalytics);
+</script>
+
+<!-- LastRendered: Apr 3, 2019 6:32:05 AM -->
+<iframe height="0" width="0" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/activityi.html" style="display: none; visibility: hidden;"></iframe><script src="./Gitflow Workflow _ Atlassian Git Tutorial_files/atl-analytics.min.js" type="text/javascript"></script><script type="text/javascript" id="">(function(a,b,c,d,e){a=b.createElement(c);b=b.getElementsByTagName(c)[0];a.async=1;a.id=e;a.src=d;b.parentNode.insertBefore(a,b)})(window,document,"script","https://scripts.demandbase.com/BwkB5d1U.min.js","demandbase_js_lib");</script>
+
+<script type="text/javascript" id="">var google_conversion_id=975152762,google_custom_params=window.google_tag_params,google_remarketing_only=!0;</script>
+<script type="text/javascript" id="" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/conversion.js"></script>
+<script type="text/javascript" id="" src="https://platform.twitter.com/oct.js"></script><script type="text/javascript" id="" charset="utf-8">var _eiq=_eiq||[],_engagio_settings={accountId:"bdc0527e86ab81381442177575715e753bc2af37"};(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://":"http://")+"web-analytics.engagio.com/js/ei.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script><script type="text/javascript" id="">ace.mkt.Helpers.throttle=function(a,h){var c,f,b,d=null,e=0,k=function(){e=new Date;d=null;b=a.apply(c,f)};return function(){var l=new Date;e||(e=l);var m=h-(l-e);c=this;f=arguments;0>=m?(clearTimeout(d),d=null,e=l,b=a.apply(c,f)):d||(d=setTimeout(k,m));return b}};ace.analytics.Tracking._autoTrackScrollEvent=function(a,h,c,f){ace.analytics.Tracking.trackEvent("scroll",{initialPercentage:a,windowHeight:h,documentHeight:c,percentage:f,_atl_path:ace.mkt.Cookie.readCookie("__atl_path")||""})};
+ace.analytics.Tracking.autoTrackScroll=function(){try{var a=Math.max(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.clientHeight,document.documentElement.scrollHeight,document.documentElement.offsetHeight),h=window.innerHeight?window.innerHeight:window.screen.height,c=document.querySelector("body").scrollTop+h,f=parseInt(c/a*100),b=25,d={};for(a=1;a<100/b+1;a++)d[a*b]=!1;var e=ace.mkt.Helpers.throttle(function(){for(var a=Math.max(document.body.scrollHeight,document.body.offsetHeight,
+document.documentElement.clientHeight,document.documentElement.scrollHeight,document.documentElement.offsetHeight),c=window.innerHeight?window.innerHeight:window.screen.height,e=document.documentElement.scrollTop+c,g=1;g<100/b+1;g++)e>=(a-1)*g*b/100&&!d[g*b]&&(ace.analytics.Tracking._autoTrackScrollEvent(f,c,a,g*b),d[g*b]=!0)},500);window.addEventListener("scroll",e)}catch(k){"undefined"!==typeof Bugsnag&&Bugsnag.notifyException(k)}};ace.analytics.Tracking.autoTrackScroll();</script><script type="text/javascript" id="">piAId="549382";piCId="16808";piHostname="pi.pardot.com";(function(){function a(){var b=document.createElement("script");b.type="text/javascript";b.src=("https:"==document.location.protocol?"https://pi":"http://cdn")+".pardot.com/pd.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)}window.attachEvent?window.attachEvent("onload",a):window.addEventListener("load",a,!1)})();</script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","221213238088884");fbq("track","PageView");</script>
+<noscript>&lt;img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=221213238088884&amp;amp;ev=PageView&amp;amp;noscript=1"&gt;</noscript>
+
+<script type="text/javascript" id="">(function(a,b){"function"!=typeof a.ClickTaleCreateDOMElement&&(a.ClickTaleCreateDOMElement=function(a){return b.createElementNS?b.createElementNS("http://www.w3.org/1999/xhtml",a):b.createElement(a)});a.WRInitTime=(new Date).getTime();var c=ClickTaleCreateDOMElement("script");c.type="text/javascript";var d="https:"==b.location.protocol?"https://cdnssl.clicktale.net/":"http://cdn.clicktale.net/";d+="www33/ptc/ef81b94c-8498-4f12-b358-eb76a000a247.js";c.src=d;b.getElementsByTagName("body")[0].appendChild(c)})(window,
+document);</script><script type="text/javascript" src="./Gitflow Workflow _ Atlassian Git Tutorial_files/ef81b94c-8498-4f12-b358-eb76a000a247.js"></script>
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/975152762/?value=0&amp;amp;guid=ON&amp;amp;script=0"&gt;
+&lt;/div&gt;
+</noscript></body></html>
